@@ -13,6 +13,9 @@ class NQueens
 {
 	// matrix for storing queens position.
 	vector<vector<int>> chessTable;
+	
+	// reset the number of queens.
+	int numOfQueens = 0;
 
 public:
 	//constructor used to initialize the size of the Queens problem.
@@ -28,7 +31,7 @@ public:
 
 private:
 	// initialize the placement of the queens.
-	bool setQueens(int _numOfQueens);
+	bool setQueens(int colIndex);
 
 	//checks if position is susceptiable to attack.
 	bool isPlaceValid(int rowIndex, int colIndex) const;

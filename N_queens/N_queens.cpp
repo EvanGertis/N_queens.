@@ -13,5 +13,6 @@ Author : Evan Gertis
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	NQueens problem{ 8 };
+	problem.solve();
 }
