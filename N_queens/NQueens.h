@@ -1,7 +1,7 @@
 #pragma once
 
+#include "pch.h"
 #include <vector>
-using std::vector;
 
 /*
 class [START]
@@ -9,40 +9,41 @@ class [START]
 /**************************************************************************/
 /**************************************************************************/
 /**************************************************************************/
-class NQueens
-{
-	// matrix for storing queens position.
-	vector<vector<int>> chessTable;
-	
-	// reset the number of queens.
-	int numOfQueens = 0;
+namespace NQ {
+	class NQueens
+	{
+		// matrix for storing queens position.
+		std::vector<std::vector<int>> chessTable;
 
-public:
-	//constructor used to initialize the size of the Queens problem.
-	NQueens(int _numOfQueens);
-	~NQueens();
+		// reset the number of queens.
+		int numOfQueens = 0;
 
-	// function that runs the NQueens simulation.
-	void solve();
+	public:
+		//constructor used to initialize the size of the Queens problem.
+		NQueens(int _numOfQueens);
+		~NQueens();
 
-/**************************************************************************/
-/**************************************************************************/
-/**************************************************************************/
+		// function that runs the NQueens simulation.
+		std::wstring solve();
 
-private:
-	// initialize the placement of the queens.
-	bool setQueens(int colIndex);
+		/**************************************************************************/
+		/**************************************************************************/
+		/**************************************************************************/
 
-	//checks if position is susceptiable to attack.
-	bool isPlaceValid(int rowIndex, int colIndex) const;
+	private:
+		// initialize the placement of the queens.
+		bool setQueens(int colIndex);
 
-	//prints out chess board.
-	void printQueens() const;
-};
-/**************************************************************************/
-/**************************************************************************/
-/**************************************************************************/
-/*
-class [END]
-*/
+		//checks if position is susceptiable to attack.
+		bool isPlaceValid(int rowIndex, int colIndex) const;
 
+		//prints out chess board.
+		std::wstring printQueens() const;
+	};
+	/**************************************************************************/
+	/**************************************************************************/
+	/**************************************************************************/
+	/*
+	class [END]
+	*/
+}

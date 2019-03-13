@@ -1,10 +1,9 @@
 #pragma once
 #include "pch.h"
-#include "NQueens.h"
-#include <iostream>
 
 
-NQueens::NQueens(int _numOfQueens) : numOfQueens(_numOfQueens)
+
+NQ::NQueens::NQueens(int _numOfQueens) : numOfQueens(_numOfQueens)
 {
 	chessTable.resize(numOfQueens);
 	
@@ -15,22 +14,25 @@ NQueens::NQueens(int _numOfQueens) : numOfQueens(_numOfQueens)
 
 }
 
-NQueens::~NQueens()
+NQ::NQueens::~NQueens()
 {
 }
 
-void NQueens::solve()
-{
+std::wstring NQ::NQueens::solve()
+{	
+	std::wstring board;
+
 	//solve the problem starting with the first column (0).
 	if (setQueens(0)) {
-		printQueens();
+		return printQueens();
 	}
 	else {
 		printf("There is no solution..\n");
+		return L" ";
 	}
 }
 
-bool NQueens::setQueens(int colIndex)
+bool NQ::NQueens::setQueens(int colIndex)
 {
 	//if we have considered as many queens as the number of rows/columns the we are done.
 	if (colIndex == numOfQueens) {
@@ -65,7 +67,7 @@ bool NQueens::setQueens(int colIndex)
 	return false;
 }
 
-bool NQueens::isPlaceValid(int rowIndex, int colIndex) const
+bool NQ::NQueens::isPlaceValid(int rowIndex, int colIndex) const
 {
 	//there can not be another queen in the same row: they would be able to attack each other.
 	for (int i = 0; i < colIndex; i++)
@@ -94,8 +96,10 @@ bool NQueens::isPlaceValid(int rowIndex, int colIndex) const
 	return true;
 }
 
-void NQueens::printQueens() const
+std::wstring NQ::NQueens::printQueens() const
 {
+	std::wstring board;
+
 	//there is a queen where the table contains a 1 else there are no queens (0 value)
 	//* represents the queens and - is an empty state.
 	for (size_t i = 0; i < chessTable.size(); i++)
@@ -103,12 +107,12 @@ void NQueens::printQueens() const
 		for (size_t j = 0; j < chessTable.size(); j++)
 		{
 			if (chessTable[i][j] == 1) {
-				printf(" * ");
+				board += L"*";
 			}
 			else {
-				printf(" - ");
+				board += L"-";
 			}
 		}
-		printf("\n");
+		return board;
 	}
 }

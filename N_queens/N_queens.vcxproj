@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="NQueens.h" />
+    <ClInclude Include="olcGameEngine.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
