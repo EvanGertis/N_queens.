@@ -121,7 +121,7 @@ int main()
 									std::wprintf(L"%lc ",chessBoard[i]);*/
 
 	OneLoneCoder_Platform game(chessBoard, n, n);
-	if (game.ConstructConsole(160, 120, n, n))
+	if (game.ConstructConsole(128, 120, n, n))
 		game.Start();
 
 	return 0;
