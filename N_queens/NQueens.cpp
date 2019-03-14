@@ -107,12 +107,13 @@ std::wstring NQ::NQueens::printQueens() const
 		for (size_t j = 0; j < chessTable.size(); j++)
 		{
 			if (chessTable[i][j] == 1) {
-				board += L"*";
+				board += L"#";
 			}
 			else {
-				board += L"-";
+				board += L".";
 			}
 		}
-		return board;
 	}
+
+	return board;
 }
