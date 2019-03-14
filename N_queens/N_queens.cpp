@@ -104,8 +104,9 @@ protected:
 };
 
 int main()
-{
-	int n = 7;
+{	
+	//Do not set n greater than 8 or less than 4 (there aren't any solutions anyways for 1, 2, 3).
+	int n = 4;
 	std::wstring chessBoard;
 
 	NQ::NQueens problem{ n };
