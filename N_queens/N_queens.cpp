@@ -5,6 +5,11 @@ File : N_queens.cpp
 Purpose : contains the main entry point for the N_queens simulation.
 Date : 03/11/2018
 Author : Evan Gertis
+Credit: 
+	OneLoneCoder
+	https://www.github.com/onelonecoder
+	https://www.onelonecoder.com
+	https://www.youtube.com/javidx9
 */
 
 
