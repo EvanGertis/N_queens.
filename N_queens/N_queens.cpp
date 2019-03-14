@@ -29,14 +29,6 @@ private:
 	int nLevelWidth;
 	int nLevelHeight;
 
-	//player position coordinates.
-	float fPlayerPosX = 0.0f;
-	float fPlayerPosY = 0.0f;
-
-	//player position coordinates.
-	float fPlayerVelX = 0.0f;
-	float fPlayerVelY = 0.0f;
-
 	//2D camera.
 	float fCameraPosX = 0.0f;
 	float fCameraPosY = 0.0f;
@@ -67,34 +59,6 @@ protected:
 				return sLevel[y * nLevelWidth + x] = c;
 			}
 		};
-
-		fPlayerVelX = 0.0f;
-		fPlayerVelY = 0.0f;
-
-		//Handle input.
-		if (IsFocused()) {
-			if (GetKey(VK_UP).bHeld) {
-				fPlayerVelY = -6.0f;
-			}
-
-			if (GetKey(VK_LEFT).bHeld) {
-				fPlayerVelX = -6.0f;
-			}
-
-			if (GetKey(VK_DOWN).bHeld) {
-				fPlayerVelY = 6.0f;
-			}
-
-			if (GetKey(VK_RIGHT).bHeld) {
-				fPlayerVelX = 6.0f;
-			}
-		}
-
-		fPlayerPosX = fPlayerPosX + fPlayerVelX * fElapsedtime;
-		fPlayerPosY = fPlayerPosY + fPlayerVelY * fElapsedtime;
-
-		fCameraPosX = fPlayerPosX;
-		fCameraPosY = fPlayerPosY;
 
 		//Draw level.
 		int nTileWidth = 16;
@@ -135,10 +99,6 @@ protected:
 			}
 		}
 
-		//NOT NEEDED TO DRAW THE CHESS BOARD
-		//Draw Player.
-		/*Fill((fPlayerPosX - fOffsetX) * nTileWidth, (fPlayerPosY - fOffsetY) * nTileHeight, (fPlayerPosX - fOffsetX + 1.0f) * nTileWidth, (fPlayerPosY - fOffsetY + 1.0f) * nTileHeight, PIXEL_SOLID, FG_GREEN);
-		*/
 		return true;
 	}
 };
