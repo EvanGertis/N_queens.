@@ -20,12 +20,11 @@ Credit:
 class OneLoneCoder_Platform : public olcConsoleGameEngine
 {
 public:
-	OneLoneCoder_Platform(std::wstring board, int boardWidth, int boardHeight) {
+	OneLoneCoder_Platform(std::wstring board, int boardWidth, int boardHeight) :
+	nLevelHeight(boardHeight), nLevelWidth(boardWidth), sLevel(board)
+	{
 		
 		m_sAppName = L"N_queens simulation";
-		this->sLevel = board;
-		this->nLevelHeight = boardHeight;
-		this->nLevelWidth = boardWidth;
 	}
 private:
 	std::wstring sLevel;
@@ -120,7 +119,7 @@ int main()
 	/*for(int i = 0; i < sizeof(chessBoard)/sizeof(chessBoard[0]); i++)
 									std::wprintf(L"%lc ",chessBoard[i]);*/
 
-	OneLoneCoder_Platform game(chessBoard, n, n);
+	OneLoneCoder_Platform game{ chessBoard, n, n };
 	if (game.ConstructConsole(128, 120, n, n))
 		game.Start();
 
